@@ -1,0 +1,7 @@
+.DS_Store
+node_modules/
+*.log
+*.bak
+*.bak-*
+state.json
+.credentials*

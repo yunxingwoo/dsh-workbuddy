@@ -1,0 +1,13 @@
+# dsh-workbuddy bundle patch：挂载 Host 服务（模型 provider、账号池、积分、签到）
+# 与 Web 客户端（设置卡片 tab、输入框积分胶囊）。插件行按包名插入；
+# package.json 的 dsh.client 声明让浏览器半边（exports "./client"）同时上线。
+- insert:
+    - id: dsh-workbuddy
+      name: 'dsh-workbuddy'
+      config:
+        refreshMinutes: 30
+        autoCheckin: false
+        requestTimeoutSeconds: 300
+        # 国际版生成被上游渠道校验拦截（code 11128），默认只提供账号/目录/积分/签到，
+        # 不把它的模型放进选择器。上游放开或做本机代理后再改为 true。
+        globalModels: false

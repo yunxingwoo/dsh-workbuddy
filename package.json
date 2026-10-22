@@ -1,0 +1,49 @@
+{
+  "name": "dsh-workbuddy",
+  "version": "0.3.0",
+  "private": true,
+  "description": "DSH 插件：把 WorkBuddy（国内版 / 国际版）账号接入模型选择器，提供账号池、模型勾选、积分倍率与每日签到",
+  "type": "module",
+  "main": "lib/host.js",
+  "exports": {
+    ".": "./lib/host.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.2.1-rc.2"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-primitives",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=4.0.1 <5.0.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yunxingwoo/dsh-workbuddy.git"
+  },
+  "files": [
+    "lib/**/*.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "install.sh",
+    "uninstall.sh"
+  ],
+  "scripts": {
+    "test": "node --test test/logic.test.mjs"
+  }
+}
